@@ -1,0 +1,29 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "Build and upload a beta to TestFlight"
+  lane :beta do |options|
+    changelog = options[:changelog] || "Automated build"
+    build_app
+    upload_to_testflight(changelog: changelog)
+  end
+
+  desc "Release to the App Store"
+  lane :release do
+    build_app
+    deliver(force: true)
+    add_git_tag
+  end
+
+  desc "Generate screenshots"
+  lane :screenshots do
+    capture_screenshots
+  end
+
+  desc "Import testers from CSV using pilot"
+  lane :add_testers do |options|
+    csv = options[:csv] || 'testers.csv'
+    require 'pilot'
+    Pilot::TesterImporter.new(csv_file_path: csv).import
+  end
+end

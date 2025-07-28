@@ -15,4 +15,16 @@ Principali funzionalità della versione 1.0.0:
 - Esportazione su iCloud Drive o ShareSheet
 
 Per maggiori dettagli consulta `Docs/README.md`.
-\n## Licenses\nSee [dependency licenses](Docs/QA/deps.md).
+
+
+
+## Licenses
+See [dependency licenses](Docs/QA/deps.md).
+
+## TestFlight
+Puoi unirti al programma beta tramite questo link pubblico:
+<https://testflight.apple.com/join/example>
+Per importare tester da CSV usa `fastlane add_testers`.
+
+## How to update screenshots
+Esegui `fastlane screenshots` per generare gli screenshot nella cartella `StoreAssets/`.
