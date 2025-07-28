@@ -13,7 +13,7 @@ struct PlannerView: View {
                 }
                 Text(n.note).font(.caption)
             }
-            .accessibilityLabel("Notte del \(n.date.formatted(date: .abbreviated, time: .omitted))")
+            .accessibilityLabel(String(format: L("night_of"), n.date.formatted(date: .abbreviated, time: .omitted)))
         }
         .onAppear { planner.refresh() }
         .padding()

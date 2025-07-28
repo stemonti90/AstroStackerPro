@@ -57,6 +57,9 @@ final class PlannerViewModel: NSObject, ObservableObject, CLLocationManagerDeleg
             let score = max(0, 1 - (astroData.moonIllumination*0.5) - Double(cloudPerc)/200 - (1-lpScore)*0.3 )
             let note = "Luna: \(Int(astroData.moonIllumination*100))%  Nuvole: \(cloudPerc)%  LP: \(Int(lpScore*100))%"
             result.append(NightPlan(date: d, score: score, moonIllum: astroData.moonIllumination, clouds: cloudPerc, note: note))
+            if score > 0.8 {
+                EngagementManager.shared.scheduleReminder(title: L("tab_planner"), body: note, at: d)
+            }
         }
         DispatchQueue.main.async { self.nights = result.sorted(by: { $0.score > $1.score }) }
     }

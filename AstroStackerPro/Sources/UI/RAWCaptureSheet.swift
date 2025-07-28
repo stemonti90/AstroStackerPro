@@ -10,11 +10,11 @@ struct RAWCaptureSheet: View {
     var body: some View {
         NavigationView {
             Form {
-                Picker("Formato", selection: $format) {
+                Picker(L("format"), selection: $format) {
                     ForEach(RAWFormat.allCases) { Text($0.rawValue.uppercased()).tag($0) }
                 }
-                .accessibilityLabel("Seleziona formato RAW")
-                Button(capturing ? "In corso…" : "Scatta RAW") {
+                .accessibilityLabel(L("format"))
+                Button(capturing ? "In corso…" : L("take_raw")) {
                     capturing = true
                     captureManager.captureRAW(format: format) {
                         capturing = false
@@ -22,10 +22,10 @@ struct RAWCaptureSheet: View {
                     }
                 }
                 .disabled(capturing)
-                .accessibilityLabel("Scatta RAW")
+                .accessibilityLabel(L("take_raw"))
             }
-            .navigationTitle("RAW/ProRAW")
-            .navigationBarItems(leading: Button("Chiudi") { dismiss() })
+            .navigationTitle(L("raw_title"))
+            .navigationBarItems(leading: Button(L("close")) { dismiss() })
         }
     }
 }
