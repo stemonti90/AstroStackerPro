@@ -1,7 +1,1 @@
-disabled_rules:
-  - trailing_whitespace
-opt_in_rules:
-  - unused_import
-  - force_cast
-  - force_unwrapping
 line_length: 150

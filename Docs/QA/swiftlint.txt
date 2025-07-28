@@ -1,0 +1,1 @@
+SwiftLint unavailable in CI environment

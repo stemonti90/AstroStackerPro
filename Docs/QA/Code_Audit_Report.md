@@ -4,7 +4,7 @@
 - Added SwiftLint config (lint execution unavailable on Linux).
 - Removed outdated Core capture manager and redundant CIImage extension.
 - Fixed force unwraps and cleaned imports.
-- Replaced remaining force unwraps in processing modules.
+
 - Improved accessibility across UI views.
 - Applied file protection for saved data and updated privacy usage.
 - Added unit tests and CI workflow for testing and SwiftLint.
@@ -14,10 +14,7 @@
 - `PlannerViewModel.swift` – avoid force unwrap and weak self in tasks.
 - `CloudExporter.swift` – removed UIKit import, added file protection.
 - `UI` views – accessibility labels.
-- `AIDenoiser.swift` & `SuperResolution.swift` – removed force unwraps.
-- `UI` views – dynamic colors for Dark Mode.
-- `RAWPhotoDelegate.swift` – cleaned TODO comment.
-- `project.yml` – added test target and warnings-as-errors.
+
 
 ## Remaining TODO
 - Light pollution service to parse GeoJSON.
