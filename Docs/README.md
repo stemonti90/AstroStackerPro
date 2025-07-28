@@ -20,8 +20,5 @@ Successivamente apri `AstroStackerPro.xcodeproj`, imposta il Bundle ID e compila
 
 Per le API meteo di OpenWeather è necessario inserire la chiave nel file `Config.plist` (esempio in `Config.plist.example`).
 
-## Funzionalità recenti
-- Planner notturno con dati astronomici, meteo e inquinamento luminoso
-- Editor non distruttivo con boost delle stelle
-- Esportazione su iCloud Drive o con ShareSheet
+
 - Workflow CI su GitHub Actions per build automatica
