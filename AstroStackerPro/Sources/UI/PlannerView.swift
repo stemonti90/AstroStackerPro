@@ -4,20 +4,19 @@ import SwiftUI
 struct PlannerView: View {
     @EnvironmentObject var planner: PlannerViewModel
     var body: some View {
-        VStack(spacing: 12) {
-            Text("Pianificazione notturna").font(.title2).bold()
-            Text("Fase lunare, nuvole, SQM, consigli...")
-            List(planner.nights) { night in
+        List(planner.nights) { n in
+            VStack(alignment: .leading) {
                 HStack {
-                    Text(night.date, style: .date)
+                    Text(n.date, style: .date)
                     Spacer()
-                    Text(night.scoreLabel)
+                    Text(String(format: "%.0f%%", n.score*100))
                 }
+                Text(n.note).font(.caption)
             }
         }
+        .onAppear { planner.refresh() }
         .padding()
         .background(Color.black.ignoresSafeArea())
         .foregroundColor(.white)
-        .onAppear { planner.refresh() }
     }
 }

@@ -13,7 +13,7 @@ struct EditorView: View {
             }
             Slider(value: $editorVM.exposure, in: -1...1) { Text("Exposure") }
             Slider(value: $editorVM.contrast, in: -1...1) { Text("Contrast") }
-            Button("Applica Boost Stelle") { editorVM.applyStarBoost() }
+            Toggle("Boost Stelle", isOn: $editorVM.starBoost)
             Spacer()
         }
         .padding()
