@@ -5,7 +5,9 @@ struct SettingsView: View {
     var body: some View {
         Form {
             Section(header: Text("Repo & Cloud")) {
-                Link("GitHub Repo", destination: URL(string: "https://github.com/stemonti90/AstroStackerPro")!)
+                if let url = URL(string: "https://github.com/stemonti90/AstroStackerPro") {
+                    Link("GitHub Repo", destination: url)
+                }
                 Toggle("Sync iCloud", isOn: .constant(false))
             }
             Section(header: Text("Info")) {

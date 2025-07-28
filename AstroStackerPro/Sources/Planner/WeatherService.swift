@@ -9,7 +9,9 @@ final class WeatherService {
     private let key = ProcessInfo.processInfo.environment["OPENWEATHER_KEY"] ?? ""
     func fetch(lat: Double, lon: Double) async -> WeatherData? {
         guard !key.isEmpty else { return nil }
-        let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(lon)&appid=\(key)&units=metric")!
+        guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(lon)&appid=\(key)&units=metric") else {
+            return nil
+        }
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
             let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]

@@ -18,5 +18,7 @@
     <string>Serve per scattare foto al cielo notturno.</string>
     <key>NSPhotoLibraryAddUsageDescription</key>
     <string>Serve per salvare le immagini elaborate.</string>
+    <key>NSMotionUsageDescription</key>
+    <string>Serve per compensare la rotazione della fotocamera durante lo scatto.</string>
 </dict>
 </plist>

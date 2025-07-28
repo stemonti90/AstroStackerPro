@@ -13,10 +13,11 @@ struct PlannerView: View {
                 }
                 Text(n.note).font(.caption)
             }
+            .accessibilityLabel("Notte del \(n.date.formatted(date: .abbreviated, time: .omitted))")
         }
         .onAppear { planner.refresh() }
         .padding()
-        .background(Color.black.ignoresSafeArea())
-        .foregroundColor(.white)
+        .background(Color(.systemBackground).ignoresSafeArea())
+        .foregroundColor(Color.primary)
     }
 }

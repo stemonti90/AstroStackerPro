@@ -19,8 +19,8 @@ final class AIDenoiser {
         do {
             let inputDesc = model.modelDescription.inputDescriptionsByName
             guard let firstKey = inputDesc.keys.first else { return image }
-            let cg = context.createCGImage(image, from: image.extent)!
-            let pixelBuffer = try MLFeatureValue(cgImage: cg, pixelFormatType: kCVPixelFormatType_32BGRA, options: nil).imageBufferValue!
+            guard let cg = context.createCGImage(image, from: image.extent) else { return image }
+            guard let pixelBuffer = try MLFeatureValue(cgImage: cg, pixelFormatType: kCVPixelFormatType_32BGRA, options: nil).imageBufferValue else { return image }
             let provider = try MLDictionaryFeatureProvider(dictionary: [firstKey: MLFeatureValue(pixelBuffer: pixelBuffer)])
             let out = try model.prediction(from: provider)
             if let outKey = model.modelDescription.outputDescriptionsByName.keys.first,

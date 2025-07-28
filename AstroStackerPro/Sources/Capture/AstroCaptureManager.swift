@@ -209,7 +209,9 @@ final class AstroCaptureManager: NSObject, ObservableObject {
 
     // MARK: - File Helpers
     private func calibrationFolder() -> URL {
-        let base = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
+        guard let base = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first else {
+            return FileManager.default.temporaryDirectory
+        }
         let dir = base.appendingPathComponent("Calibration", isDirectory: true)
         try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
         return dir
@@ -219,7 +221,7 @@ final class AstroCaptureManager: NSObject, ObservableObject {
         let url = calibrationFolder().appendingPathComponent(name).appendingPathExtension("tiff")
         if let colorSpace = CGColorSpace(name: CGColorSpace.linearSRGB),
            let data = context.tiffRepresentation(of: image, format: .RGBAh, colorSpace: colorSpace) {
-            try? data.write(to: url)
+            try? data.write(to: url, options: .completeFileProtectionUntilFirstUserAuthentication)
         }
     }
 
@@ -231,7 +233,7 @@ final class AstroCaptureManager: NSObject, ObservableObject {
             "bias": biasCI != nil
         ]
         if let data = try? JSONSerialization.data(withJSONObject: info, options: .prettyPrinted) {
-            try? data.write(to: url)
+            try? data.write(to: url, options: .completeFileProtectionUntilFirstUserAuthentication)
         }
     }
 }
