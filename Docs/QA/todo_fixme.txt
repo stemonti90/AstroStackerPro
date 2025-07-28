@@ -1,0 +1,6 @@
+AstroStackerPro/Sources/Planner/LightPollutionService.swift:7:        // TODO: parse Docs/LightPollution.geojson and compute SQM. For now random-ish placeholder.
+AstroStackerPro/Sources/Core/AstroCaptureManager.swift:66:    func startDarkFrameCapture(seconds: Int) { /* TODO */ }
+AstroStackerPro/Sources/Core/AstroCaptureManager.swift:67:    func startFlatFrameCapture(seconds: Int) { /* TODO */ }
+AstroStackerPro/Sources/Core/AstroCaptureManager.swift:68:    func startBiasFrameCapture(count: Int) { /* TODO */ }
+AstroStackerPro/Sources/Core/AstroCaptureManager.swift:141:    private func reconfigureForCamera() { /* TODO */ }
+AstroStackerPro/Sources/Capture/RAWPhotoDelegate.swift:22:        // Salva anche su iCloud Drive se disponibile (metadata TODO)
