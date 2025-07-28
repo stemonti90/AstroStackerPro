@@ -8,10 +8,17 @@ packages:
   SwiftAA:
     url: https://github.com/onekiloparsec/SwiftAA.git
     from: 2.0.0
+  Firebase:
+    url: https://github.com/firebase/firebase-ios-sdk.git
+    from: 10.15.0
 settings:
   base:
     SWIFT_VERSION: 5.9
     SWIFT_TREAT_WARNINGS_AS_ERRORS: YES
+    OTHER_SWIFT_FLAGS: "$(inherited)"
+  configs:
+    Release:
+      OTHER_SWIFT_FLAGS: "$(inherited) -D ENABLE_CRASHLYTICS"
 
 targets:
   AstroStackerPro:
@@ -30,6 +37,8 @@ targets:
         buildPhase: resources
     dependencies:
       - package: SwiftAA
+      - package: Firebase
+        product: FirebaseCrashlytics
   AstroStackerProTests:
     type: bundle.unit-test
     platform: iOS
