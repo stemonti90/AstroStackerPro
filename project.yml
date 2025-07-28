@@ -23,6 +23,7 @@ targets:
         buildPhase: resources
       - path: AstroStackerPro/Models
         buildPhase: resources
+      - path: AstroStackerPro/Metal
       - path: Docs
         optional: true
         buildPhase: resources

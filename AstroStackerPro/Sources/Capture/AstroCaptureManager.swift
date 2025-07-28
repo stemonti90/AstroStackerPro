@@ -14,6 +14,10 @@ final class AstroCaptureManager: NSObject, ObservableObject {
     @Published var exposureDuration: Double = 1/60 { didSet { updateExposure() } }
     @Published var focusPosition: Float = 0.5 { didSet { updateFocus() } }
     @Published var stackingMethod: StackingMethod = .maximum
+    @Published var applyDenoise = false
+    @Published var applySuperRes = false
+    @Published var applyDerotation = true
+    @Published var denoiseStrength: Float = 0.6
 
     // RAW capture
     private let photoOutput = AVCapturePhotoOutput()
@@ -31,8 +35,8 @@ final class AstroCaptureManager: NSObject, ObservableObject {
     private var calibEndTime: Date?
     private var calibFrames: [CIImage] = []
 
-    // Motion per derotazione (placeholder)
-    private let motionMgr = CMMotionManager()
+    // Derotation
+    private let derotationManager = DerotationManager()
 
     private let session = AVCaptureSession()
     private let queue = DispatchQueue(label: "capture.queue")
@@ -106,7 +110,12 @@ final class AstroCaptureManager: NSObject, ObservableObject {
     // MARK: - Processing
     func processFrames(applyLightPollution: Bool) -> UIImage? {
         guard !frameBuffer.isEmpty else { return nil }
-        let ciFrames = frameBuffer.map { CIImage(cvPixelBuffer: $0) }
+        var ciFrames = frameBuffer.map { CIImage(cvPixelBuffer: $0) }
+        if applyDerotation {
+            ciFrames = ciFrames.map { frame in
+                frame.transformed(by: derotationManager.transformForCurrentFrame(referenceExtent: frame.extent))
+            }
+        }
         guard let base = ciFrames.first else { return nil }
 
         var aligned: [CIImage] = [base]
@@ -121,14 +130,7 @@ final class AstroCaptureManager: NSObject, ObservableObject {
             }
         }
 
-        // Derotazione basilare usando dati di motion
-        if let motion = motionMgr.deviceMotion {
-            let angle = CGFloat(motion.attitude.yaw)
-            aligned = aligned.map { img in
-                let t = CGAffineTransform(rotationAngle: -angle)
-                return img.transformed(by: t)
-            }
-        }
+        // Derotation refinement (Vision) handled during alignment
 
         // Applica calibrazione se disponibile
         if let dark = darkCI {
@@ -157,11 +159,17 @@ final class AstroCaptureManager: NSObject, ObservableObject {
                 "inputAVector": CIVector(x:0,y:0,z:0,w:1)
             ])
         }
-        var final = result
-        if applyLightPollution {
-            final = final.applyingFilter("CITemperatureAndTint", parameters: ["inputNeutral": CIVector(x:6500,y:0),"inputTargetNeutral": CIVector(x:5000,y:0)])
+        var finalCI = result
+        if applyDenoise {
+            finalCI = AIDenoiser.shared.denoise(finalCI, strength: denoiseStrength)
         }
-        guard let cg = context.createCGImage(final, from: final.extent) else { return nil }
+        if applySuperRes {
+            finalCI = SuperResolution.shared.upscale2x(finalCI)
+        }
+        if applyLightPollution {
+            finalCI = finalCI.applyingFilter("CITemperatureAndTint", parameters: ["inputNeutral": CIVector(x:6500,y:0),"inputTargetNeutral": CIVector(x:5000,y:0)])
+        }
+        guard let cg = context.createCGImage(finalCI, from: finalCI.extent) else { return nil }
         return UIImage(cgImage: cg)
     }
 
@@ -191,13 +199,13 @@ final class AstroCaptureManager: NSObject, ObservableObject {
         }
     }
 
-    // MARK: - Motion
+    // MARK: - Motion / Derotation
     private func startMotion() {
-        guard motionMgr.isDeviceMotionAvailable else { return }
-        motionMgr.deviceMotionUpdateInterval = 1/30
-        motionMgr.startDeviceMotionUpdates()
+        derotationManager.start()
     }
-    private func stopMotion() { motionMgr.stopDeviceMotionUpdates() }
+    private func stopMotion() {
+        derotationManager.stop()
+    }
 
     // MARK: - File Helpers
     private func calibrationFolder() -> URL {
