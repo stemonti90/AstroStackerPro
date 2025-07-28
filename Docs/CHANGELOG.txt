@@ -1,8 +1,2 @@
-
-<<<<<<< HEAD
 27-07-2025 - Setup iniziale repo: struttura + codice base + UI preview
-Versione completa in consegna entro il 28-07-2025 ore 20:00
-=======
 27-07-2025 - Full project scaffold uploaded
-TODO: aggiungere modelli ML, file .xcodeproj
->>>>>>> bd460ab (Full project)
