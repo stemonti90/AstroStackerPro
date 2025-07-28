@@ -13,13 +13,16 @@ struct RAWCaptureSheet: View {
                 Picker("Formato", selection: $format) {
                     ForEach(RAWFormat.allCases) { Text($0.rawValue.uppercased()).tag($0) }
                 }
+                .accessibilityLabel("Seleziona formato RAW")
                 Button(capturing ? "In corso…" : "Scatta RAW") {
                     capturing = true
                     captureManager.captureRAW(format: format) {
                         capturing = false
                         dismiss()
                     }
-                }.disabled(capturing)
+                }
+                .disabled(capturing)
+                .accessibilityLabel("Scatta RAW")
             }
             .navigationTitle("RAW/ProRAW")
             .navigationBarItems(leading: Button("Chiudi") { dismiss() })

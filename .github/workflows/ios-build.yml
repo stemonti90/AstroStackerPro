@@ -16,3 +16,7 @@ jobs:
         run: xcodegen generate
       - name: Build
         run: xcodebuild -project AstroStackerPro.xcodeproj -scheme AstroStackerPro -destination 'generic/platform=iOS' clean build
+      - name: Test
+        run: xcodebuild -project AstroStackerPro.xcodeproj -scheme AstroStackerPro -destination 'platform=iOS Simulator,name=iPhone 15' test
+      - name: SwiftLint
+        run: swiftlint lint --reporter junit || true

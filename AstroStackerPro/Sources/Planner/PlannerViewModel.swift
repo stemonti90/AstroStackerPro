@@ -30,12 +30,16 @@ final class PlannerViewModel: NSObject, ObservableObject, CLLocationManagerDeleg
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let loc = locations.first else { return }
-        Task { await computePlans(lat: loc.coordinate.latitude, lon: loc.coordinate.longitude) }
+        Task { [weak self] in
+            await self?.computePlans(lat: loc.coordinate.latitude, lon: loc.coordinate.longitude)
+        }
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         // fallback Milano
-        Task { await computePlans(lat: 45.4642, lon: 9.1900) }
+        Task { [weak self] in
+            await self?.computePlans(lat: 45.4642, lon: 9.1900)
+        }
     }
 
     private func computePlans(lat: Double, lon: Double) async {
@@ -44,7 +48,7 @@ final class PlannerViewModel: NSObject, ObservableObject, CLLocationManagerDeleg
         let lpScore = lp.score(for: .init(latitude: lat, longitude: lon))
 
         for i in 0..<7 {
-            let d = Calendar.current.date(byAdding: .day, value: i, to: baseDate)!
+            guard let d = Calendar.current.date(byAdding: .day, value: i, to: baseDate) else { continue }
             let astroData = astro.compute(for: d, lat: lat, lon: lon)
             let wData = await weather.fetch(lat: lat, lon: lon)
 

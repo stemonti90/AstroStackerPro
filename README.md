@@ -15,3 +15,4 @@ Principali funzionalità della versione 1.0.0:
 - Esportazione su iCloud Drive o ShareSheet
 
 Per maggiori dettagli consulta `Docs/README.md`.
+\n## Licenses\nSee [dependency licenses](Docs/QA/deps.md).

@@ -1,0 +1,4 @@
+opt_in_rules:
+  - unused_import
+  - force_cast
+line_length: 150

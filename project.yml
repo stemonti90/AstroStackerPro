@@ -29,6 +29,13 @@ targets:
         buildPhase: resources
     dependencies:
       - package: SwiftAA
+  AstroStackerProTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: Tests
+    dependencies:
+      - target: AstroStackerPro
     info:
       path: AstroStackerPro/Info.plist
       properties:
@@ -45,3 +52,4 @@ schemes:
     build:
       targets:
         AstroStackerPro: all
+        AstroStackerProTests: [test]
