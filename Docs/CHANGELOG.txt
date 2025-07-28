@@ -1,11 +1,3 @@
 27-07-2025 - Setup iniziale repo: struttura + codice base + UI preview
 27-07-2025 - Full project scaffold uploaded
-## 1.0.0 – 2025-07-28
-- Planner notturno con dati astronomici, meteo e inquinamento luminoso
-- Editor non distruttivo con boost delle stelle
-- Esportazione su iCloud Drive o tramite ShareSheet
-- AI denoise e super-resolution opzionali
-- Derotazione dei frame con CoreMotion e Vision
-- Workflow CI per build iOS
-
 30-07-2025 - Aggiunto planner avanzato, editor non distruttivo, export iCloud e workflow CI
