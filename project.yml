@@ -29,6 +29,8 @@ targets:
       - path: AstroStackerPro/Sources
       - path: AstroStackerPro/Assets
         buildPhase: resources
+      - path: AstroStackerPro/Localization
+        buildPhase: resources
       - path: AstroStackerPro/Models
         buildPhase: resources
       - path: AstroStackerPro/Metal

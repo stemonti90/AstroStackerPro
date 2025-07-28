@@ -1,6 +1,7 @@
 
 import SwiftUI
 import FirebaseCore
+import UserNotifications
 #if ENABLE_CRASHLYTICS
 import FirebaseCrashlytics
 #endif
@@ -10,7 +11,13 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         FirebaseApp.configure()
         MetricKitManager.shared.register()
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { _, _ in }
+        application.registerForRemoteNotifications()
         return true
+    }
+
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        print("Registered for push: \(deviceToken.map { String(format: "%02.2hhx", $0) }.joined())")
     }
 }
 

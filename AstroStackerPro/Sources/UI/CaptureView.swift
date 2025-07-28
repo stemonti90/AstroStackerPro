@@ -15,64 +15,64 @@ struct CaptureView: View {
                     Image(uiImage: ui)
                         .resizable()
                         .scaledToFit()
-                        .accessibilityLabel("Immagine elaborata")
+                        .accessibilityLabel(L("process"))
                 } else {
                     Rectangle().fill(Color.secondary.opacity(0.3))
                         .frame(height: 220)
-                        .overlay(Text("Nessuna immagine").foregroundColor(.secondary))
+                        .overlay(Text(L("no_image")).foregroundColor(.secondary))
                 }
 
                 HStack {
-                    Button(captureManager.isRunning ? "Stop" : "Start") {
+                    Button(captureManager.isRunning ? L("stop") : L("start")) {
                         captureManager.isRunning ? captureManager.stop() : captureManager.start()
                     }
                     .buttonStyle(.borderedProminent)
-                    .accessibilityLabel(captureManager.isRunning ? "Ferma acquisizione" : "Avvia acquisizione")
+                    .accessibilityLabel(captureManager.isRunning ? L("stop") : L("start"))
 
-                    Button("Elabora") {
+                    Button(L("process")) {
                         processedImage = captureManager.processFrames(applyLightPollution: useLightPollutionFilter)
                     }
                     .disabled(captureManager.frameCount == 0)
-                    .accessibilityLabel("Elabora frames")
+                    .accessibilityLabel(L("process"))
                 }
 
-                Toggle("Filtro antinquinamento", isOn: $useLightPollutionFilter)
+                Toggle(L("light_pollution_filter"), isOn: $useLightPollutionFilter)
                     .disabled(processedImage == nil)
-                    .accessibilityLabel("Filtro antinquinamento luminoso")
+                    .accessibilityLabel(L("light_pollution_filter"))
 
-                Toggle("AI Denoise", isOn: $captureManager.applyDenoise)
-                    .accessibilityLabel("Attiva AI Denoise")
+                Toggle(L("ai_denoise"), isOn: $captureManager.applyDenoise)
+                    .accessibilityLabel(L("ai_denoise"))
                 Slider(value: $captureManager.denoiseStrength, in: 0...1)
                     .disabled(!captureManager.applyDenoise)
 
-                Toggle("Super-Resolution 2x", isOn: $captureManager.applySuperRes)
-                    .accessibilityLabel("Abilita super risoluzione 2x")
-                Toggle("Derotation", isOn: $captureManager.applyDerotation)
-                    .accessibilityLabel("Abilita derotazione")
+                Toggle(L("super_res"), isOn: $captureManager.applySuperRes)
+                    .accessibilityLabel(L("super_res"))
+                Toggle(L("derotation"), isOn: $captureManager.applyDerotation)
+                    .accessibilityLabel(L("derotation"))
 
-                Picker("Stacking", selection: $captureManager.stackingMethod) {
+                Picker(L("stacking"), selection: $captureManager.stackingMethod) {
                     ForEach(StackingMethod.allCases) { Text($0.rawValue.capitalized).tag($0) }
                 }.pickerStyle(.segmented)
 
                 Group {
-                    Text("ISO: \(Int(captureManager.iso))")
+                    Text("\(L("iso")): \(Int(captureManager.iso))")
                     Slider(value: $captureManager.iso, in: 50...1600, step: 10)
-                    Text(String(format: "Tempo: %.4f s", captureManager.exposureDuration))
+                    Text(String(format: "\(L("time")): %.4f s", captureManager.exposureDuration))
                     Slider(value: $captureManager.exposureDuration, in: 1/1000...0.1)
-                    Text(String(format: "Fuoco: %.2f", captureManager.focusPosition))
+                    Text(String(format: "\(L("focus")): %.2f", captureManager.focusPosition))
                     Slider(value: $captureManager.focusPosition, in: 0...1)
                 }
 
                 ProgressView(value: Double(captureManager.frameCount), total: 1200)
-                Text("Frame: \(captureManager.frameCount)").font(.caption).foregroundColor(.gray)
+                Text("\(L("frames")): \(captureManager.frameCount)").font(.caption).foregroundColor(.gray)
 
-                Button("Wizard Calibrazione") { showWizard = true }
+                Button(L("wizard")) { showWizard = true }
                     .buttonStyle(.bordered)
-                    .accessibilityLabel("Apri wizard calibrazione")
+                    .accessibilityLabel(L("wizard"))
                     .sheet(isPresented: $showWizard) { CalibrationWizardView().environmentObject(captureManager) }
 
-                Button("Scatta RAW/ProRAW") { showRAWPicker = true }
-                    .accessibilityLabel("Scatta RAW o ProRAW")
+                Button(L("take_raw_menu")) { showRAWPicker = true }
+                    .accessibilityLabel(L("take_raw_menu"))
                     .sheet(isPresented: $showRAWPicker) { RAWCaptureSheet().environmentObject(captureManager) }
             }
             .padding()

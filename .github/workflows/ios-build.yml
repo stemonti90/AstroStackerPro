@@ -25,6 +25,25 @@ jobs:
       - name: SwiftLint
         run: swiftlint lint --reporter junit || true
 
+  lint-l10n:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check localization keys
+        run: bash Scripts/check_localization.sh
+
+  unit-tests:
+    runs-on: macos-14
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install XcodeGen
+        run: brew install xcodegen
+      - name: Generate project
+        run: xcodegen generate
+      - name: Test Feature Flags
+        run: xcodebuild -project AstroStackerPro.xcodeproj -scheme AstroStackerProTests -destination 'platform=iOS Simulator,name=iPhone 15' test
+
   beta:
     if: startsWith(github.ref, 'refs/heads/release/')
     runs-on: macos-14

@@ -33,5 +33,14 @@ final class MetricKitManager: NSObject, MXMetricManagerSubscriber {
         #endif
         // minimal anonymous log for release
         print("[MetricKit] saved \(filename)")
+        upload(data: data, name: filename)
+    }
+
+    private func upload(data: Data, name: String) {
+        guard let url = URL(string: "https://example.com/metrics") else { return }
+        var req = URLRequest(url: url)
+        req.httpMethod = "POST"
+        req.httpBody = data
+        URLSession.shared.uploadTask(with: req, from: data).resume()
     }
 }
