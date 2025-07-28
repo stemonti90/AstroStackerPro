@@ -3,9 +3,9 @@
 Questo progetto raccoglie il codice sorgente e la documentazione dell'app.
 
 ## Cartelle
-- `Sources/` – codice Swift dell'app
-- `Assets/` – asset grafici di esempio
-- `Models/` – eventuali modelli CoreML
+- `AstroStackerPro/Sources/` – codice Swift dell'app
+- `AstroStackerPro/Assets/` – asset grafici di esempio
+- `AstroStackerPro/Models/` – eventuali modelli CoreML
 - `Docs/` – documentazione e changelog
 
 ## Build
