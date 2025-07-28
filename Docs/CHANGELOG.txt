@@ -1,0 +1,3 @@
+
+27-07-2025 - Setup iniziale repo: struttura + codice base + UI preview
+Versione completa in consegna entro il 28-07-2025 ore 20:00
