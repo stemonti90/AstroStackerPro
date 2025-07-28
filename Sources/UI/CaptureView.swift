@@ -1,10 +1,13 @@
 
 import SwiftUI
+
 struct CaptureView: View {
     @EnvironmentObject var captureManager: AstroCaptureManager
     @State private var processedImage: UIImage?
     @State private var useLightPollutionFilter = false
-    @State private var showDarkWizard = false
+    @State private var showWizard = false
+    @State private var showRAWPicker = false
+
     var body: some View {
         ScrollView {
             VStack(spacing: 16) {
@@ -15,14 +18,17 @@ struct CaptureView: View {
                         .frame(height: 220)
                         .overlay(Text("Nessuna immagine").foregroundColor(.white))
                 }
+
                 HStack {
-                    Button(captureManager.isRunning ? "Interrompi" : "Avvia") {
+                    Button(captureManager.isRunning ? "Stop" : "Start") {
                         captureManager.isRunning ? captureManager.stop() : captureManager.start()
                     }.buttonStyle(.borderedProminent)
+
                     Button("Elabora") {
                         processedImage = captureManager.processFrames(applyLightPollution: useLightPollutionFilter)
                     }.disabled(captureManager.frameCount == 0)
                 }
+
                 Toggle("Filtro antinquinamento", isOn: $useLightPollutionFilter)
                     .disabled(processedImage == nil)
 
@@ -38,16 +44,19 @@ struct CaptureView: View {
                     Text(String(format: "Fuoco: %.2f", captureManager.focusPosition))
                     Slider(value: $captureManager.focusPosition, in: 0...1)
                 }
-                ProgressView(value: Double(captureManager.frameCount), total: 1200)
-                Text("Frame: \(captureManager.frameCount)")
-                    .font(.caption).foregroundColor(.gray)
 
-                Button("Wizard Dark/Flat/Bias") { showDarkWizard = true }
+                ProgressView(value: Double(captureManager.frameCount), total: 1200)
+                Text("Frame: \(captureManager.frameCount)").font(.caption).foregroundColor(.gray)
+
+                Button("Wizard Calibrazione") { showWizard = true }
                     .buttonStyle(.bordered)
-                    .sheet(isPresented: $showDarkWizard) {
-                        CalibrationWizardView().environmentObject(captureManager)
-                    }
-            }.padding()
-        }.background(Color.black.ignoresSafeArea())
+                    .sheet(isPresented: $showWizard) { CalibrationWizardView().environmentObject(captureManager) }
+
+                Button("Scatta RAW/ProRAW") { showRAWPicker = true }
+                    .sheet(isPresented: $showRAWPicker) { RAWCaptureSheet().environmentObject(captureManager) }
+            }
+            .padding()
+        }
+        .background(Color.black.ignoresSafeArea())
     }
 }
