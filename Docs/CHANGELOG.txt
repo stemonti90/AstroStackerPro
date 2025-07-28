@@ -1,2 +1,3 @@
 27-07-2025 - Setup iniziale repo: struttura + codice base + UI preview
 27-07-2025 - Full project scaffold uploaded
+30-07-2025 - Aggiunto planner avanzato, editor non distruttivo, export iCloud e workflow CI
