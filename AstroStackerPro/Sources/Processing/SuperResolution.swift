@@ -15,12 +15,12 @@ final class SuperResolution {
     func upscale2x(_ image: CIImage) -> CIImage {
         guard let model else { return image }
         do {
-            let cg = context.createCGImage(image, from: image.extent)!
+            guard let cg = context.createCGImage(image, from: image.extent) else { return image }
             let fv = try MLFeatureValue(cgImage: cg, pixelFormatType: kCVPixelFormatType_32BGRA, options: nil)
-            let key = model.modelDescription.inputDescriptionsByName.keys.first!
+            guard let key = model.modelDescription.inputDescriptionsByName.keys.first else { return image }
             let provider = try MLDictionaryFeatureProvider(dictionary: [key: fv])
             let out = try model.prediction(from: provider)
-            let outKey = model.modelDescription.outputDescriptionsByName.keys.first!
+            guard let outKey = model.modelDescription.outputDescriptionsByName.keys.first else { return image }
             if let buf = out.featureValue(for: outKey)?.imageBufferValue {
                 return CIImage(cvPixelBuffer: buf)
             }

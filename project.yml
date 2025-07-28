@@ -11,6 +11,7 @@ packages:
 settings:
   base:
     SWIFT_VERSION: 5.9
+    SWIFT_TREAT_WARNINGS_AS_ERRORS: YES
 
 targets:
   AstroStackerPro:

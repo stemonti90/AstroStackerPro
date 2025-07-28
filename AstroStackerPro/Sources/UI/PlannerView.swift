@@ -17,7 +17,7 @@ struct PlannerView: View {
         }
         .onAppear { planner.refresh() }
         .padding()
-        .background(Color.black.ignoresSafeArea())
-        .foregroundColor(.white)
+        .background(Color(.systemBackground).ignoresSafeArea())
+        .foregroundColor(Color.primary)
     }
 }

@@ -23,7 +23,7 @@ struct EditorView: View {
             Spacer()
         }
         .padding()
-        .background(Color.black.ignoresSafeArea())
-        .foregroundColor(.white)
+        .background(Color(.systemBackground).ignoresSafeArea())
+        .foregroundColor(Color.primary)
     }
 }

@@ -17,9 +17,9 @@ struct CaptureView: View {
                         .scaledToFit()
                         .accessibilityLabel("Immagine elaborata")
                 } else {
-                    Rectangle().fill(Color.black.opacity(0.3))
+                    Rectangle().fill(Color.secondary.opacity(0.3))
                         .frame(height: 220)
-                        .overlay(Text("Nessuna immagine").foregroundColor(.white))
+                        .overlay(Text("Nessuna immagine").foregroundColor(.secondary))
                 }
 
                 HStack {
@@ -77,6 +77,6 @@ struct CaptureView: View {
             }
             .padding()
         }
-        .background(Color.black.ignoresSafeArea())
+        .background(Color(.systemBackground).ignoresSafeArea())
     }
 }

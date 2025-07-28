@@ -18,7 +18,7 @@ final class RAWPhotoDelegate: NSObject, AVCapturePhotoCaptureDelegate {
             req.addResource(with: .photo, data: data, options: options)
         }, completionHandler: nil)
 
-        // Salva anche su iCloud Drive se disponibile (metadata TODO)
+        // Salva anche su iCloud Drive se disponibile insieme ai metadati
         CloudExporter.export(data, fileName: UUID().uuidString + ".dng", toICloud: FileManager.default.ubiquityIdentityToken != nil) { url in
             if let url, let json = try? JSONSerialization.data(withJSONObject: photo.metadata, options: .prettyPrinted) {
                 let metaURL = url.deletingPathExtension().appendingPathExtension("json")
