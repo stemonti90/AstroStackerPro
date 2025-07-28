@@ -32,6 +32,13 @@ struct CaptureView: View {
                 Toggle("Filtro antinquinamento", isOn: $useLightPollutionFilter)
                     .disabled(processedImage == nil)
 
+                Toggle("AI Denoise", isOn: $captureManager.applyDenoise)
+                Slider(value: $captureManager.denoiseStrength, in: 0...1)
+                    .disabled(!captureManager.applyDenoise)
+
+                Toggle("Super-Resolution 2x", isOn: $captureManager.applySuperRes)
+                Toggle("Derotation", isOn: $captureManager.applyDerotation)
+
                 Picker("Stacking", selection: $captureManager.stackingMethod) {
                     ForEach(StackingMethod.allCases) { Text($0.rawValue.capitalized).tag($0) }
                 }.pickerStyle(.segmented)

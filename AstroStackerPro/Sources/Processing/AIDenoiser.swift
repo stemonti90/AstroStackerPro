@@ -1,27 +1,33 @@
-
 import CoreML
 import CoreImage
 
 final class AIDenoiser {
-    private lazy var model: MLModel? = {
-        guard let url = Bundle.main.url(forResource: "AIDenoise", withExtension: "mlmodelc") else { return nil }
-        return try? MLModel(contentsOf: url)
-    }()
+    static let shared = AIDenoiser()
+    private let context = CIContext()
+    private var model: MLModel?
 
-    func denoise(_ image: CIImage, strength: Float) -> CIImage {
-        guard let model else { return image }
-        let input = try? MLDictionaryFeatureProvider(dictionary: ["image": MLFeatureValue(pixelBuffer: pixelBuffer(from: image))])
-        if let out = try? model.prediction(from: input!), let pb = out.featureValue(for: "outputImage")?.imageBufferValue {
-            return CIImage(cvPixelBuffer: pb)
+    private init() {
+        // Prova a caricare un modello DRUNet/SwinIR convertito in CoreML
+        if let url = Bundle.main.url(forResource: "DRUNet", withExtension: "mlmodelc") {
+            model = try? MLModel(contentsOf: url)
         }
-        return image
     }
 
-    private func pixelBuffer(from image: CIImage) -> CVPixelBuffer {
-        let attr: [CFString: Any] = [kCVPixelBufferCGImageCompatibilityKey: true, kCVPixelBufferCGBitmapContextCompatibilityKey: true]
-        var pb: CVPixelBuffer?
-        CVPixelBufferCreate(kCFAllocatorDefault, Int(image.extent.width), Int(image.extent.height), kCVPixelFormatType_32BGRA, attr as CFDictionary, &pb)
-        if let pb, let ctx = CIContext() as CIContext? { ctx.render(image, to: pb) }
-        return pb!
+    /// Se il modello manca o qualcosa fallisce, ritorna l'immagine originale.
+    func denoise(_ image: CIImage, strength: Float) -> CIImage {
+        guard let model else { return image }
+        do {
+            let inputDesc = model.modelDescription.inputDescriptionsByName
+            guard let firstKey = inputDesc.keys.first else { return image }
+            let cg = context.createCGImage(image, from: image.extent)!
+            let pixelBuffer = try MLFeatureValue(cgImage: cg, pixelFormatType: kCVPixelFormatType_32BGRA, options: nil).imageBufferValue!
+            let provider = try MLDictionaryFeatureProvider(dictionary: [firstKey: MLFeatureValue(pixelBuffer: pixelBuffer)])
+            let out = try model.prediction(from: provider)
+            if let outKey = model.modelDescription.outputDescriptionsByName.keys.first,
+               let buf = out.featureValue(for: outKey)?.imageBufferValue {
+                return CIImage(cvPixelBuffer: buf)
+            }
+        } catch { }
+        return image
     }
 }
