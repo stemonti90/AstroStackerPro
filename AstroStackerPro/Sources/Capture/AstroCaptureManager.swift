@@ -6,6 +6,7 @@ import Vision
 import CoreMotion
 import SwiftUI
 
+@MainActor
 final class AstroCaptureManager: NSObject, ObservableObject {
     // Stato UI
     @Published var isRunning = false
@@ -84,19 +85,32 @@ final class AstroCaptureManager: NSObject, ObservableObject {
     }
 
     // MARK: - RAW capture
-    func captureRAW(format: RAWFormat, completion: @escaping ()->Void) {
+    func captureRAW(format: RAWFormat, completion: @escaping () -> Void) {
+        let rawType = kCVPixelFormatType_14Bayer_GRBG
         let settings: AVCapturePhotoSettings
-        if format == .proraw, photoOutput.isProRAWEnabled {
-            settings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.hevc])
-            settings.isHighResolutionPhotoEnabled = true
+
+        if format == .proraw,
+           photoOutput.availableRawPhotoPixelFormatTypes.contains(rawType) {
+            if #available(iOS 16.0, *) {
+                settings = AVCapturePhotoSettings(rawPixelFormatType: rawType, processedFormat: [AVVideoCodecKey: AVVideoCodecType.hevc])
+                settings.maxPhotoDimensions = photoOutput.maxPhotoDimensions
+            } else {
+                settings = AVCapturePhotoSettings(rawPixelFormatType: rawType, processedFormat: [AVVideoCodecKey: AVVideoCodecType.hevc])
+                settings.isHighResolutionPhotoEnabled = true
+            }
             settings.isDepthDataDeliveryEnabled = false
             settings.isPortraitEffectsMatteDeliveryEnabled = false
-            settings.embedsThumbnailPixelBuffer = true
             settings.photoQualityPrioritization = .quality
-            settings.rawPhotoPixelFormatType = kCVPixelFormatType_14Bayer_GRBG
         } else {
-            settings = AVCapturePhotoSettings(rawPixelFormatType: kCVPixelFormatType_14Bayer_GRBG)
+            if #available(iOS 16.0, *) {
+                settings = AVCapturePhotoSettings(rawPixelFormatType: rawType)
+                settings.maxPhotoDimensions = photoOutput.maxPhotoDimensions
+            } else {
+                settings = AVCapturePhotoSettings(rawPixelFormatType: rawType)
+                settings.isHighResolutionPhotoEnabled = true
+            }
         }
+
         photoOutput.capturePhoto(with: settings, delegate: RAWPhotoDelegate(done: completion))
     }
 
@@ -147,16 +161,16 @@ final class AstroCaptureManager: NSObject, ObservableObject {
         switch stackingMethod {
         case .maximum:
             result = aligned.dropFirst().reduce(base) { acc, next in next.composited(over: acc) }
-        case .average:
+        case .average, .median, .sigmaClipping:
             let sum = aligned.reduce(CIImage(color: .clear)) { acc, next in
                 next.applyingFilter("CIAdditionCompositing", parameters: ["inputBackgroundImage": acc])
             }
-            let d = Float(aligned.count)
+            let d = CGFloat(aligned.count)
             result = sum.applyingFilter("CIColorMatrix", parameters: [
-                "inputRVector": CIVector(x: 1/d, y:0,z:0,w:0),
-                "inputGVector": CIVector(x:0,y:1/d,z:0,w:0),
-                "inputBVector": CIVector(x:0,y:0,z:1/d,w:0),
-                "inputAVector": CIVector(x:0,y:0,z:0,w:1)
+                "inputRVector": CIVector(x: 1/d, y: 0, z: 0, w: 0),
+                "inputGVector": CIVector(x: 0, y: 1/d, z: 0, w: 0),
+                "inputBVector": CIVector(x: 0, y: 0, z: 1/d, w: 0),
+                "inputAVector": CIVector(x: 0, y: 0, z: 0, w: 1)
             ])
         }
         var finalCI = result
@@ -251,10 +265,12 @@ extension AstroCaptureManager: AVCaptureVideoDataOutputSampleBufferDelegate {
                 // Calcolo master frame
                 let master = calibFrames.reduce(CIImage(color: .clear)) { acc, next in
                     next.applyingFilter("CIAdditionCompositing", parameters: ["inputBackgroundImage": acc])
-                }.applyingFilter("CIColorMatrix", parameters: ["inputRVector": CIVector(x: 1/Float(max(calibFrames.count,1)), y:0,z:0,w:0),
-                                 "inputGVector": CIVector(x:0,y:1/Float(max(calibFrames.count,1)),z:0,w:0),
-                                 "inputBVector": CIVector(x:0,y:0,z:1/Float(max(calibFrames.count,1)),w:0),
-                                 "inputAVector": CIVector(x:0,y:0,z:0,w:1)])
+                }.applyingFilter("CIColorMatrix", parameters: [
+                    "inputRVector": CIVector(x: 1/CGFloat(max(calibFrames.count,1)), y: 0, z: 0, w: 0),
+                    "inputGVector": CIVector(x: 0, y: 1/CGFloat(max(calibFrames.count,1)), z: 0, w: 0),
+                    "inputBVector": CIVector(x: 0, y: 0, z: 1/CGFloat(max(calibFrames.count,1)), w: 0),
+                    "inputAVector": CIVector(x: 0, y: 0, z: 0, w: 1)
+                ])
                 switch type {
                 case .dark:
                     darkCI = master; save(master, name: "dark_master")

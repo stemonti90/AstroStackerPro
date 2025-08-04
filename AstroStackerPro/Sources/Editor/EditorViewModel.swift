@@ -2,6 +2,7 @@ import Foundation
 import UIKit
 import CoreImage
 
+@MainActor
 final class EditorViewModel: ObservableObject {
     @Published var preview: UIImage?
     @Published var exposure: Double = 0 { didSet { render() } }

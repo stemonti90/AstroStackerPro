@@ -1,6 +1,7 @@
 
 import AVFoundation
 import Photos
+import UIKit
 
 final class RAWPhotoDelegate: NSObject, AVCapturePhotoCaptureDelegate {
     private let done: ()->Void
@@ -10,6 +11,11 @@ final class RAWPhotoDelegate: NSObject, AVCapturePhotoCaptureDelegate {
         defer { done() }
         guard error == nil else { return }
         guard let data = photo.fileDataRepresentation() else { return }
+
+        // Thumbnail non più incorporato: ricaviamo eventuale preview dal delegate.
+        if let cgPreview = photo.previewCGImageRepresentation()?.takeUnretainedValue() {
+            _ = UIImage(cgImage: cgPreview) // eventualmente usabile dalla UI
+        }
 
         // Salva in Libreria Foto
         PHPhotoLibrary.shared().performChanges({
