@@ -11,6 +11,7 @@ struct NightPlan: Identifiable {
     let note: String
 }
 
+@MainActor
 final class PlannerViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var nights: [NightPlan] = []
     private let astro = AstroService()
