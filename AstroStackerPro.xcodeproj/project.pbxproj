@@ -1,0 +1,791 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 63;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		085BD858BEA8338CDFFF7649 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = FBEBB742E63877158847CE10 /* README.txt */; };
+		167F8B2725B998753BA29630 /* deps.md in Resources */ = {isa = PBXBuildFile; fileRef = B62C1DD8FCE641E4CA1603E3 /* deps.md */; };
+		2807DFA872094B92D9234989 /* SwiftAA in Frameworks */ = {isa = PBXBuildFile; productRef = BF3A1416CC64FEA9DD627806 /* SwiftAA */; };
+		2AB8F20E5E800D428589F5CE /* swiftlint.txt in Resources */ = {isa = PBXBuildFile; fileRef = 124CD19AC220F72609F41720 /* swiftlint.txt */; };
+		2E413CB0A628DE6D6D24A9C9 /* Operations.md in Resources */ = {isa = PBXBuildFile; fileRef = 65C8CEB61E43F66702D8837F /* Operations.md */; };
+		42A92CF515A28DFE98588F39 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 01F322974A453153A626DFB3 /* FirebaseCrashlytics */; };
+		457FE3F4F39F8D144BA01D94 /* build_log.txt in Resources */ = {isa = PBXBuildFile; fileRef = B74FD55621DDDFA62AB3C97E /* build_log.txt */; };
+		531BF2CB2E5136B100D3A6C2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 531BF2C92E5136B100D3A6C2 /* GoogleService-Info.plist */; };
+		53996A972E5315F500E83A47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53996A952E5315F500E83A47 /* Assets.xcassets */; };
+		53996A982E5315F500E83A47 /* appstore.png in Resources */ = {isa = PBXBuildFile; fileRef = 53996A942E5315F500E83A47 /* appstore.png */; };
+		6A95280255B24E9659FE5B69 /* todo_fixme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3E5CD34A29B42E5EFEA6D939 /* todo_fixme.txt */; };
+		6DED5F2D21229BC938253F62 /* LightPollution.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 6EC0CA188E8AA43351016C73 /* LightPollution.geojson */; };
+		AB9A28BF93185DC5128C3A9B /* PrivacyDataInventory.md in Resources */ = {isa = PBXBuildFile; fileRef = B3D44B0C438418762A51F8F3 /* PrivacyDataInventory.md */; };
+		CF594E05F08F2A5F17EB7EBD /* StoreReviewChecklist.md in Resources */ = {isa = PBXBuildFile; fileRef = E44DDDEB6B1BDF13BFB4F44A /* StoreReviewChecklist.md */; };
+		CFF9718A92686A3BE13947A6 /* ProcessingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4552E1250CACD76333A3DDC /* ProcessingTests.swift */; };
+		D7786066B6A6C04C43CCA30E /* CHANGELOG.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6F19B43D00246FC4D9070900 /* CHANGELOG.txt */; };
+		EB3CBF63B4138C4A3EA1D217 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A784DB1F0E4268F73AD819E7 /* README.md */; };
+		F328C11CE1CBD135AD151278 /* Code_Audit_Report.md in Resources */ = {isa = PBXBuildFile; fileRef = 978E829444CDF5AA42F68DD8 /* Code_Audit_Report.md */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DB2569A55EA30A7456AFF9CE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AB56551A04A80DCF426CD388 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 777B60CA0CB82F8F84A0D238;
+			remoteInfo = AstroStackerPro;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		531BF2452E5121BA00D3A6C2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		08ABA01E2CBEB6D499FC746D /* AstroStackerPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AstroStackerPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		124CD19AC220F72609F41720 /* swiftlint.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = swiftlint.txt; sourceTree = "<group>"; };
+		3E5CD34A29B42E5EFEA6D939 /* todo_fixme.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = todo_fixme.txt; sourceTree = "<group>"; };
+		531BF28C2E5136B100D3A6C2 /* DeepSkyCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepSkyCatalog.swift; sourceTree = "<group>"; };
+		531BF28D2E5136B100D3A6C2 /* SkyRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyRecognizer.swift; sourceTree = "<group>"; };
+		531BF28E2E5136B100D3A6C2 /* StarCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarCatalog.swift; sourceTree = "<group>"; };
+		531BF2902E5136B100D3A6C2 /* AstroStackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstroStackerApp.swift; sourceTree = "<group>"; };
+		531BF2922E5136B100D3A6C2 /* AstroCaptureManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstroCaptureManager.swift; sourceTree = "<group>"; };
+		531BF2932E5136B100D3A6C2 /* RAWPhotoDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAWPhotoDelegate.swift; sourceTree = "<group>"; };
+		531BF2942E5136B100D3A6C2 /* StackingMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackingMethod.swift; sourceTree = "<group>"; };
+		531BF2962E5136B100D3A6C2 /* CloudExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudExporter.swift; sourceTree = "<group>"; };
+		531BF2982E5136B100D3A6C2 /* AIDenoiser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIDenoiser.swift; sourceTree = "<group>"; };
+		531BF2992E5136B100D3A6C2 /* ExportManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportManager.swift; sourceTree = "<group>"; };
+		531BF29A2E5136B100D3A6C2 /* StackingPipeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackingPipeline.swift; sourceTree = "<group>"; };
+		531BF29B2E5136B100D3A6C2 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
+		531BF29D2E5136B100D3A6C2 /* EditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorViewModel.swift; sourceTree = "<group>"; };
+		531BF29E2E5136B100D3A6C2 /* StarMaskFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarMaskFilter.swift; sourceTree = "<group>"; };
+		531BF2A02E5136B100D3A6C2 /* LightPollutionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightPollutionService.swift; sourceTree = "<group>"; };
+		531BF2A12E5136B100D3A6C2 /* PlannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerViewModel.swift; sourceTree = "<group>"; };
+		531BF2A22E5136B100D3A6C2 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
+		531BF2A42E5136B100D3A6C2 /* DerotationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DerotationManager.swift; sourceTree = "<group>"; };
+		531BF2A52E5136B100D3A6C2 /* ImageStackingStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStackingStrategy.swift; sourceTree = "<group>"; };
+		531BF2A62E5136B100D3A6C2 /* StarRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRegistration.swift; sourceTree = "<group>"; };
+		531BF2A72E5136B100D3A6C2 /* SuperResolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperResolution.swift; sourceTree = "<group>"; };
+		531BF2A92E5136B100D3A6C2 /* CalibrationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationManager.swift; sourceTree = "<group>"; };
+		531BF2AA2E5136B100D3A6C2 /* HardwareCapabilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardwareCapabilities.swift; sourceTree = "<group>"; };
+		531BF2AB2E5136B100D3A6C2 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		531BF2AD2E5136B100D3A6C2 /* AppServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppServices.swift; sourceTree = "<group>"; };
+		531BF2AE2E5136B100D3A6C2 /* EngagementManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngagementManager.swift; sourceTree = "<group>"; };
+		531BF2B02E5136B100D3A6C2 /* MetricKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricKitManager.swift; sourceTree = "<group>"; };
+		531BF2B22E5136B100D3A6C2 /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
+		531BF2B32E5136B100D3A6C2 /* LabeledSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabeledSlider.swift; sourceTree = "<group>"; };
+		531BF2B42E5136B100D3A6C2 /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
+		531BF2B52E5136B100D3A6C2 /* SectionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCard.swift; sourceTree = "<group>"; };
+		531BF2B62E5136B100D3A6C2 /* ToggleRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleRow.swift; sourceTree = "<group>"; };
+		531BF2B82E5136B100D3A6C2 /* ASPTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASPTheme.swift; sourceTree = "<group>"; };
+		531BF2BA2E5136B100D3A6C2 /* AstroRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstroRootView.swift; sourceTree = "<group>"; };
+		531BF2BB2E5136B100D3A6C2 /* CalibrationWizardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationWizardView.swift; sourceTree = "<group>"; };
+		531BF2BC2E5136B100D3A6C2 /* CaptureScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureScreen.swift; sourceTree = "<group>"; };
+		531BF2BD2E5136B100D3A6C2 /* CaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureView.swift; sourceTree = "<group>"; };
+		531BF2BE2E5136B100D3A6C2 /* EditorScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorScreen.swift; sourceTree = "<group>"; };
+		531BF2BF2E5136B100D3A6C2 /* EditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorView.swift; sourceTree = "<group>"; };
+		531BF2C02E5136B100D3A6C2 /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
+		531BF2C12E5136B100D3A6C2 /* PlannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerView.swift; sourceTree = "<group>"; };
+		531BF2C22E5136B100D3A6C2 /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
+		531BF2C32E5136B100D3A6C2 /* RAWCaptureSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAWCaptureSheet.swift; sourceTree = "<group>"; };
+		531BF2C42E5136B100D3A6C2 /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
+		531BF2C52E5136B100D3A6C2 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
+		531BF2C62E5136B100D3A6C2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		531BF2C82E5136B100D3A6C2 /* AstroService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstroService.swift; sourceTree = "<group>"; };
+		531BF2C92E5136B100D3A6C2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		53996A8E2E53140E00E83A47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = text; path = Assets.xcassets; sourceTree = "<group>"; };
+		53996A942E5315F500E83A47 /* appstore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appstore.png; sourceTree = "<group>"; };
+		53996A952E5315F500E83A47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		65C8CEB61E43F66702D8837F /* Operations.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Operations.md; sourceTree = "<group>"; };
+		6EC0CA188E8AA43351016C73 /* LightPollution.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = LightPollution.geojson; sourceTree = "<group>"; };
+		6F19B43D00246FC4D9070900 /* CHANGELOG.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CHANGELOG.txt; sourceTree = "<group>"; };
+		978E829444CDF5AA42F68DD8 /* Code_Audit_Report.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Code_Audit_Report.md; sourceTree = "<group>"; };
+		A784DB1F0E4268F73AD819E7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		AF336F5029BAE381F690821D /* AstroStackerPro.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AstroStackerPro.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3D44B0C438418762A51F8F3 /* PrivacyDataInventory.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PrivacyDataInventory.md; sourceTree = "<group>"; };
+		B62C1DD8FCE641E4CA1603E3 /* deps.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = deps.md; sourceTree = "<group>"; };
+		B74FD55621DDDFA62AB3C97E /* build_log.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = build_log.txt; sourceTree = "<group>"; };
+		C7C288548BFC67946A31C4BE /* StackingKernels.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = StackingKernels.metal; sourceTree = "<group>"; };
+		E44DDDEB6B1BDF13BFB4F44A /* StoreReviewChecklist.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = StoreReviewChecklist.md; sourceTree = "<group>"; };
+		E4552E1250CACD76333A3DDC /* ProcessingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingTests.swift; sourceTree = "<group>"; };
+		FBEBB742E63877158847CE10 /* README.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F87E871F8AE0963BCD1CB85B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2807DFA872094B92D9234989 /* SwiftAA in Frameworks */,
+				42A92CF515A28DFE98588F39 /* FirebaseCrashlytics in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3E5AA64898C88AA1B4F3F0D7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FBEBB742E63877158847CE10 /* README.txt */,
+			);
+			name = Models;
+			path = AstroStackerPro/Models;
+			sourceTree = "<group>";
+		};
+		531BF28F2E5136B100D3A6C2 /* AI */ = {
+			isa = PBXGroup;
+			children = (
+				531BF28C2E5136B100D3A6C2 /* DeepSkyCatalog.swift */,
+				531BF28D2E5136B100D3A6C2 /* SkyRecognizer.swift */,
+				531BF28E2E5136B100D3A6C2 /* StarCatalog.swift */,
+			);
+			path = AI;
+			sourceTree = "<group>";
+		};
+		531BF2912E5136B100D3A6C2 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				531BF2902E5136B100D3A6C2 /* AstroStackerApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		531BF2952E5136B100D3A6C2 /* Capture */ = {
+			isa = PBXGroup;
+			children = (
+				531BF2922E5136B100D3A6C2 /* AstroCaptureManager.swift */,
+				531BF2932E5136B100D3A6C2 /* RAWPhotoDelegate.swift */,
+				531BF2942E5136B100D3A6C2 /* StackingMethod.swift */,
+			);
+			path = Capture;
+			sourceTree = "<group>";
+		};
+		531BF2972E5136B100D3A6C2 /* Cloud */ = {
+			isa = PBXGroup;
+			children = (
+				531BF2962E5136B100D3A6C2 /* CloudExporter.swift */,
+			);
+			path = Cloud;
+			sourceTree = "<group>";
+		};
+		531BF29C2E5136B100D3A6C2 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				531BF2982E5136B100D3A6C2 /* AIDenoiser.swift */,
+				531BF2992E5136B100D3A6C2 /* ExportManager.swift */,
+				531BF29A2E5136B100D3A6C2 /* StackingPipeline.swift */,
+				531BF29B2E5136B100D3A6C2 /* Types.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		531BF29F2E5136B100D3A6C2 /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+				531BF29D2E5136B100D3A6C2 /* EditorViewModel.swift */,
+				531BF29E2E5136B100D3A6C2 /* StarMaskFilter.swift */,
+			);
+			path = Editor;
+			sourceTree = "<group>";
+		};
+		531BF2A32E5136B100D3A6C2 /* Planner */ = {
+			isa = PBXGroup;
+			children = (
+				531BF2A02E5136B100D3A6C2 /* LightPollutionService.swift */,
+				531BF2A12E5136B100D3A6C2 /* PlannerViewModel.swift */,
+				531BF2A22E5136B100D3A6C2 /* WeatherService.swift */,
+			);
+			path = Planner;
+			sourceTree = "<group>";
+		};
+		531BF2A82E5136B100D3A6C2 /* Processing */ = {
+			isa = PBXGroup;
+			children = (
+				531BF2A42E5136B100D3A6C2 /* DerotationManager.swift */,
+				531BF2A52E5136B100D3A6C2 /* ImageStackingStrategy.swift */,
+				531BF2A62E5136B100D3A6C2 /* StarRegistration.swift */,
+				531BF2A72E5136B100D3A6C2 /* SuperResolution.swift */,
+			);
+			path = Processing;
+			sourceTree = "<group>";
+		};
+		531BF2AC2E5136B100D3A6C2 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				531BF2A92E5136B100D3A6C2 /* CalibrationManager.swift */,
+				531BF2AA2E5136B100D3A6C2 /* HardwareCapabilities.swift */,
+				531BF2AB2E5136B100D3A6C2 /* Localization.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		531BF2AF2E5136B100D3A6C2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				531BF2AC2E5136B100D3A6C2 /* Support */,
+				531BF2AD2E5136B100D3A6C2 /* AppServices.swift */,
+				531BF2AE2E5136B100D3A6C2 /* EngagementManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		531BF2B12E5136B100D3A6C2 /* Telemetry */ = {
+			isa = PBXGroup;
+			children = (
+				531BF2B02E5136B100D3A6C2 /* MetricKitManager.swift */,
+			);
+			path = Telemetry;
+			sourceTree = "<group>";
+		};
+		531BF2B72E5136B100D3A6C2 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				531BF2B22E5136B100D3A6C2 /* DesignSystem.swift */,
+				531BF2B32E5136B100D3A6C2 /* LabeledSlider.swift */,
+				531BF2B42E5136B100D3A6C2 /* PaywallView.swift */,
+				531BF2B52E5136B100D3A6C2 /* SectionCard.swift */,
+				531BF2B62E5136B100D3A6C2 /* ToggleRow.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		531BF2B92E5136B100D3A6C2 /* Design */ = {
+			isa = PBXGroup;
+			children = (
+				531BF2B82E5136B100D3A6C2 /* ASPTheme.swift */,
+			);
+			path = Design;
+			sourceTree = "<group>";
+		};
+		531BF2C72E5136B100D3A6C2 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				531BF2B72E5136B100D3A6C2 /* Components */,
+				531BF2B92E5136B100D3A6C2 /* Design */,
+				531BF2BA2E5136B100D3A6C2 /* AstroRootView.swift */,
+				531BF2BB2E5136B100D3A6C2 /* CalibrationWizardView.swift */,
+				531BF2BC2E5136B100D3A6C2 /* CaptureScreen.swift */,
+				531BF2BD2E5136B100D3A6C2 /* CaptureView.swift */,
+				531BF2BE2E5136B100D3A6C2 /* EditorScreen.swift */,
+				531BF2BF2E5136B100D3A6C2 /* EditorView.swift */,
+				531BF2C02E5136B100D3A6C2 /* GalleryView.swift */,
+				531BF2C12E5136B100D3A6C2 /* PlannerView.swift */,
+				531BF2C22E5136B100D3A6C2 /* PreviewView.swift */,
+				531BF2C32E5136B100D3A6C2 /* RAWCaptureSheet.swift */,
+				531BF2C42E5136B100D3A6C2 /* RootTabView.swift */,
+				531BF2C52E5136B100D3A6C2 /* SettingsScreen.swift */,
+				531BF2C62E5136B100D3A6C2 /* SettingsView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		531BF2CA2E5136B100D3A6C2 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				531BF28F2E5136B100D3A6C2 /* AI */,
+				531BF2912E5136B100D3A6C2 /* App */,
+				531BF2952E5136B100D3A6C2 /* Capture */,
+				531BF2972E5136B100D3A6C2 /* Cloud */,
+				531BF29C2E5136B100D3A6C2 /* Core */,
+				531BF29F2E5136B100D3A6C2 /* Editor */,
+				531BF2A32E5136B100D3A6C2 /* Planner */,
+				531BF2A82E5136B100D3A6C2 /* Processing */,
+				531BF2AF2E5136B100D3A6C2 /* Services */,
+				531BF2B12E5136B100D3A6C2 /* Telemetry */,
+				531BF2C72E5136B100D3A6C2 /* UI */,
+				531BF2C82E5136B100D3A6C2 /* AstroService.swift */,
+				531BF2C92E5136B100D3A6C2 /* GoogleService-Info.plist */,
+			);
+			name = Sources;
+			path = AstroStackerPro/Sources;
+			sourceTree = "<group>";
+		};
+		53996A962E5315F500E83A47 /* AppIcons */ = {
+			isa = PBXGroup;
+			children = (
+				53996A942E5315F500E83A47 /* appstore.png */,
+				53996A952E5315F500E83A47 /* Assets.xcassets */,
+			);
+			path = AppIcons;
+			sourceTree = "<group>";
+		};
+		545913D60A8FD8A82068758E /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				53996A8E2E53140E00E83A47 /* Assets.xcassets */,
+				53996A962E5315F500E83A47 /* AppIcons */,
+			);
+			name = Assets;
+			path = AstroStackerPro/Assets;
+			sourceTree = "<group>";
+		};
+		6370F6B147231F0B2FEF05B0 /* QA */ = {
+			isa = PBXGroup;
+			children = (
+				B74FD55621DDDFA62AB3C97E /* build_log.txt */,
+				978E829444CDF5AA42F68DD8 /* Code_Audit_Report.md */,
+				B62C1DD8FCE641E4CA1603E3 /* deps.md */,
+				124CD19AC220F72609F41720 /* swiftlint.txt */,
+				3E5CD34A29B42E5EFEA6D939 /* todo_fixme.txt */,
+			);
+			path = QA;
+			sourceTree = "<group>";
+		};
+		6AA95109AD74EAD954ADD2E9 /* Metal */ = {
+			isa = PBXGroup;
+			children = (
+				C7C288548BFC67946A31C4BE /* StackingKernels.metal */,
+			);
+			name = Metal;
+			path = AstroStackerPro/Metal;
+			sourceTree = "<group>";
+		};
+		88700C992AC44DF1E88DC12E /* Docs */ = {
+			isa = PBXGroup;
+			children = (
+				6F19B43D00246FC4D9070900 /* CHANGELOG.txt */,
+				6EC0CA188E8AA43351016C73 /* LightPollution.geojson */,
+				65C8CEB61E43F66702D8837F /* Operations.md */,
+				B3D44B0C438418762A51F8F3 /* PrivacyDataInventory.md */,
+				A784DB1F0E4268F73AD819E7 /* README.md */,
+				E44DDDEB6B1BDF13BFB4F44A /* StoreReviewChecklist.md */,
+				6370F6B147231F0B2FEF05B0 /* QA */,
+			);
+			path = Docs;
+			sourceTree = "<group>";
+		};
+		9E81B48B8A7F06F119A433CA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				08ABA01E2CBEB6D499FC746D /* AstroStackerPro.app */,
+				AF336F5029BAE381F690821D /* AstroStackerPro.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B614A2230BEB37A447C027A5 /* BasicTests */ = {
+			isa = PBXGroup;
+			children = (
+				E4552E1250CACD76333A3DDC /* ProcessingTests.swift */,
+			);
+			path = BasicTests;
+			sourceTree = "<group>";
+		};
+		C8ADC3AA002F85A61EDC28CF = {
+			isa = PBXGroup;
+			children = (
+				545913D60A8FD8A82068758E /* Assets */,
+				88700C992AC44DF1E88DC12E /* Docs */,
+				6AA95109AD74EAD954ADD2E9 /* Metal */,
+				3E5AA64898C88AA1B4F3F0D7 /* Models */,
+				9E81B48B8A7F06F119A433CA /* Products */,
+				531BF2CA2E5136B100D3A6C2 /* Sources */,
+				F4D0DFE538692EE71E7B9791 /* Tests */,
+			);
+			sourceTree = "<group>";
+		};
+		F4D0DFE538692EE71E7B9791 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				B614A2230BEB37A447C027A5 /* BasicTests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		41B0865E6E0D210B6EA19894 /* AstroStackerProTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0325D5CD671F7CA21247092F /* Build configuration list for PBXNativeTarget "AstroStackerProTests" */;
+			buildPhases = (
+				ECBBCB4AC269BC6B9CFE3618 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				72891FF6640DA29A98051D73 /* PBXTargetDependency */,
+			);
+			name = AstroStackerProTests;
+			packageProductDependencies = (
+			);
+			productName = AstroStackerProTests;
+			productReference = AF336F5029BAE381F690821D /* AstroStackerPro.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		777B60CA0CB82F8F84A0D238 /* AstroStackerPro */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B857384C6C9229A71E68C5E1 /* Build configuration list for PBXNativeTarget "AstroStackerPro" */;
+			buildPhases = (
+				828F5BFC6E07A461B4BD2758 /* Resources */,
+				F87E871F8AE0963BCD1CB85B /* Frameworks */,
+				531BF2452E5121BA00D3A6C2 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AstroStackerPro;
+			packageProductDependencies = (
+				BF3A1416CC64FEA9DD627806 /* SwiftAA */,
+				01F322974A453153A626DFB3 /* FirebaseCrashlytics */,
+			);
+			productName = AstroStackerPro;
+			productReference = 08ABA01E2CBEB6D499FC746D /* AstroStackerPro.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AB56551A04A80DCF426CD388 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1640;
+			};
+			buildConfigurationList = 45C7C1AB434E5F1D51FC0177 /* Build configuration list for PBXProject "AstroStackerPro" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = C8ADC3AA002F85A61EDC28CF;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				33F66684936A64345E952E1F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				DE53297A7EF753F6A16BCE7B /* XCRemoteSwiftPackageReference "SwiftAA" */,
+			);
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				777B60CA0CB82F8F84A0D238 /* AstroStackerPro */,
+				41B0865E6E0D210B6EA19894 /* AstroStackerProTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		828F5BFC6E07A461B4BD2758 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7786066B6A6C04C43CCA30E /* CHANGELOG.txt in Resources */,
+				F328C11CE1CBD135AD151278 /* Code_Audit_Report.md in Resources */,
+				6DED5F2D21229BC938253F62 /* LightPollution.geojson in Resources */,
+				2E413CB0A628DE6D6D24A9C9 /* Operations.md in Resources */,
+				AB9A28BF93185DC5128C3A9B /* PrivacyDataInventory.md in Resources */,
+				EB3CBF63B4138C4A3EA1D217 /* README.md in Resources */,
+				531BF2CB2E5136B100D3A6C2 /* GoogleService-Info.plist in Resources */,
+				085BD858BEA8338CDFFF7649 /* README.txt in Resources */,
+				CF594E05F08F2A5F17EB7EBD /* StoreReviewChecklist.md in Resources */,
+				53996A972E5315F500E83A47 /* Assets.xcassets in Resources */,
+				53996A982E5315F500E83A47 /* appstore.png in Resources */,
+				457FE3F4F39F8D144BA01D94 /* build_log.txt in Resources */,
+				167F8B2725B998753BA29630 /* deps.md in Resources */,
+				2AB8F20E5E800D428589F5CE /* swiftlint.txt in Resources */,
+				6A95280255B24E9659FE5B69 /* todo_fixme.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ECBBCB4AC269BC6B9CFE3618 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFF9718A92686A3BE13947A6 /* ProcessingTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		72891FF6640DA29A98051D73 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 777B60CA0CB82F8F84A0D238 /* AstroStackerPro */;
+			targetProxy = DB2569A55EA30A7456AFF9CE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2115EEF60FE86CD27266321B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "$(PROJECT_DIR)/AstroStackerPro/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stemonti.AstroStackerProTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AstroStackerPro.app/AstroStackerPro";
+			};
+			name = Debug;
+		};
+		64B510B757EC9F35D10B7108 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(PROJECT_DIR)/AstroStackerPro/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = AstroStackerPro;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stemonti.AstroStackerPro;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7C98F125A028E1E7D2723F8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(PROJECT_DIR)/AstroStackerPro/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = AstroStackerPro;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stemonti.AstroStackerPro;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9FBDF4D7B2C1C37E389407D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(PROJECT_DIR)/AstroStackerPro/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_NAME = AstroStackerPro;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		C4A8FC78FEE9D46034387B3C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "$(PROJECT_DIR)/AstroStackerPro/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stemonti.AstroStackerProTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AstroStackerPro.app/AstroStackerPro";
+			};
+			name = Release;
+		};
+		D7F1933F386CAC72A50CA22A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(PROJECT_DIR)/AstroStackerPro/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				OTHER_SWIFT_FLAGS = "$(inherited) -D ENABLE_CRASHLYTICS";
+				PRODUCT_NAME = AstroStackerPro;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0325D5CD671F7CA21247092F /* Build configuration list for PBXNativeTarget "AstroStackerProTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2115EEF60FE86CD27266321B /* Debug */,
+				C4A8FC78FEE9D46034387B3C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		45C7C1AB434E5F1D51FC0177 /* Build configuration list for PBXProject "AstroStackerPro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9FBDF4D7B2C1C37E389407D8 /* Debug */,
+				D7F1933F386CAC72A50CA22A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		B857384C6C9229A71E68C5E1 /* Build configuration list for PBXNativeTarget "AstroStackerPro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				64B510B757EC9F35D10B7108 /* Debug */,
+				7C98F125A028E1E7D2723F8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		33F66684936A64345E952E1F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.15.0;
+			};
+		};
+		DE53297A7EF753F6A16BCE7B /* XCRemoteSwiftPackageReference "SwiftAA" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onekiloparsec/SwiftAA.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		01F322974A453153A626DFB3 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 33F66684936A64345E952E1F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		BF3A1416CC64FEA9DD627806 /* SwiftAA */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DE53297A7EF753F6A16BCE7B /* XCRemoteSwiftPackageReference "SwiftAA" */;
+			productName = SwiftAA;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = AB56551A04A80DCF426CD388 /* Project object */;
+}

@@ -1,0 +1,25 @@
+# Xcode
+DerivedData/
+build/
+*.xccheckout
+*.xcscmblueprint
+*.xcuserstate
+*.xcworkspace/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+
+# Swift Package Manager
+.swiftpm/
+# tieni Package.resolved per build riproducibili:
+!Package.resolved
+
+# CocoaPods (se mai lo userai)
+Pods/
+*.xcworkspace
+
+# iOS common
+.DS_Store
+*.ipa
+
+# Crashlytics / Google (tieni i plist SOLO se vuoi)
+# GoogleService-Info.plist  # <- commentato: decidi tu se tenerlo o ignorarlo

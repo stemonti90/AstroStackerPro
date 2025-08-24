@@ -1,0 +1,40 @@
+name: iOS Build
+
+on:
+  push:
+    branches: [ main, codex/**, final-release, release/* ]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install XcodeGen
+        run: brew install xcodegen
+      - name: Install fastlane
+        run: gem install fastlane
+      - name: Generate project
+        run: xcodegen generate
+      - name: Build
+        run: xcodebuild -project AstroStackerPro.xcodeproj -scheme AstroStackerPro -destination 'generic/platform=iOS' clean build
+      - name: Test
+        run: xcodebuild -project AstroStackerPro.xcodeproj -scheme AstroStackerPro -destination 'platform=iOS Simulator,name=iPhone 15' test
+      - name: Upload dSYM
+        run: bash fastlane/scripts/upload_dsym.sh
+      - name: SwiftLint
+        run: swiftlint lint --reporter junit || true
+
+  beta:
+    if: startsWith(github.ref, 'refs/heads/release/')
+    runs-on: macos-14
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install fastlane
+        run: gem install fastlane
+      - name: Run fastlane beta
+        env:
+          APP_STORE_CONNECT_API_KEY_BASE64: ${{ secrets.APP_STORE_CONNECT_API_KEY_BASE64 }}
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+        run: fastlane beta

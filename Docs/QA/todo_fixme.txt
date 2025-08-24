@@ -1,0 +1,1 @@
+AstroStackerPro/Sources/Planner/LightPollutionService.swift:7:        // TODO: parse Docs/LightPollution.geojson and compute SQM. For now random-ish placeholder.
